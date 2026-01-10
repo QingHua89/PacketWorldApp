@@ -1,0 +1,60 @@
+/* ======================================= */
+/* ESTILOS BASE PARA TODOS LOS BOTONES */
+/* ======================================= */
+.button {
+    /* Define la fuente a usar por defecto */
+    -fx-font-family: "System"; 
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand; /* Cambia el cursor para indicar que es clickeable */
+    -fx-background-radius: 4px; /* Esquinas ligeramente redondeadas */
+    -fx-border-radius: 4px;
+    -fx-border-width: 0;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.5, 0, 1); /* Sombra sutil para darle profundidad */
+}
+
+/* ======================================= */
+/* 1. BOTÓN PRINCIPAL (CTA) */
+/* (Iniciar Sesión, Enviar, Pagar) */
+/* ======================================= */
+.cta-primary {
+    -fx-background-color: #FFB703; /* Naranja Cobre */
+    -fx-text-fill: #023047; /* Texto Azul Profundo para mejor contraste que el blanco */
+}
+
+/* Efecto Hover: Ligeramente más oscuro al pasar el ratón */
+.cta-primary:hover {
+    -fx-background-color: #E6A500; /* Naranja ligeramente más oscuro */
+}
+
+/* ======================================= */
+/* 2. BOTÓN SECUNDARIO (btn-secondary) */
+/* (Acciones Neutrales: Regresar, Ver Historial) */
+/* ======================================= */
+.btn-secondary {
+    -fx-background-color: #023047; /* Azul Real Profundo */
+    -fx-text-fill: #FFFFFF; /* Texto Blanco */
+}
+
+/* Efecto Hover: Ligeramente más claro al pasar el ratón */
+.btn-secondary:hover {
+    -fx-background-color: #03486F; /* Azul ligeramente más claro */
+}
+
+/* ======================================= */
+/* 3. BOTÓN DE BAJO ÉNFASIS (btn-ghost) */
+/* (Olvido Contraseña, Enlaces de ayuda) */
+/* ======================================= */
+.btn-ghost {
+    -fx-background-color: transparent;
+    -fx-text-fill: #023047; /* Texto Azul Real */
+    -fx-border-color: #023047; /* Contorno Azul Real */
+    -fx-border-width: 1px;
+    -fx-effect: none; /* Quitamos la sombra para un look más limpio */
+}
+
+/* Efecto Hover: Se rellena ligeramente de azul al pasar el ratón */
+.btn-ghost:hover {
+    -fx-background-color: rgba(2, 48, 71, 0.1); /* Relleno azul muy sutil */
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldapp.FXMLFormularioColaboradoresController">
+    <children>
+      <Pane layoutX="-1.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@recursos/Fondo-Largo2.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+
+        <Pane layoutX="-1.0" prefHeight="45.0" prefWidth="600.0" style="-fx-background-color: #023047;" />
+
+        <Label layoutX="31.0" layoutY="58.0" text="No. de personal" />
+
+        <TextField fx:id="tfNoPersonal" layoutX="31.0" layoutY="75.0" promptText="PWC00*" />
+
+        <Label layoutX="222.0" layoutY="58.0" text="Nombre" />
+
+        <TextField fx:id="tfNombre" layoutX="222.0" layoutY="75.0" promptText="Jose" />
+
+        <TextField fx:id="tfApellidoPaterno" layoutX="412.0" layoutY="75.0" promptText="García" />
+
+        <Label layoutX="412.0" layoutY="58.0" text="Apellido paterno" />
+
+        <Label layoutX="33.0" layoutY="126.0" text="Apellido materno" />
+
+        <TextField fx:id="tfApellidoMaterno" layoutX="31.0" layoutY="143.0" promptText="Torres" />
+
+        <Label layoutX="33.0" layoutY="200.0" text="Contraseña de acceso" />
+
+        <TextField fx:id="tfPassword" layoutX="31.0" layoutY="217.0" promptText="********" />
+
+        <Label layoutX="223.0" layoutY="200.0" text="Rol en el sistema" />
+
+        <ComboBox fx:id="cbRol" layoutX="218.0" layoutY="216.0" prefHeight="27.0" prefWidth="161.0" />
+
+        <Button fx:id="btGuardar" layoutX="467.0" layoutY="353.0" mnemonicParsing="false" onAction="#clicBtnGuardar" prefHeight="27.0" prefWidth="100.0" text="Guardar" />
+
+        <Button fx:id="btCancelar" layoutX="375.0" layoutY="353.0" mnemonicParsing="false" onAction="#clicBtnCancelar" prefHeight="27.0" prefWidth="75.0" text="Cancelar" />
+      <TextField fx:id="tfCurp" layoutX="222.0" layoutY="143.0" promptText="AAAA000000TLQLRJ00" />
+      <Label layoutX="224.0" layoutY="126.0" text="CURP" />
+      <TextField fx:id="tfCorreo" layoutX="412.0" layoutY="143.0" promptText="ejemplo@mail.com" />
+      <Label layoutX="414.0" layoutY="126.0" text="Correo" />
+      <Label layoutX="406.0" layoutY="200.0" text="Sucursal" />
+      <ComboBox fx:id="cbSucursal" layoutX="406.0" layoutY="215.0" prefHeight="27.0" prefWidth="161.0" />
+      <Label layoutX="408.0" layoutY="262.0" text="No. de licencia" />
+      <TextField fx:id="tfNoLicencia" layoutX="406.0" layoutY="279.0" prefHeight="25.0" prefWidth="161.0" promptText="LIC000000" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f800" height="140.0" layoutX="31.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="149.0" />
+      <ImageView fx:id="ivPerfil" fitHeight="140.0" fitWidth="149.0" layoutX="31.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="188.0" layoutY="354.0" mnemonicParsing="false" onAction="#clicBtnCambiarImagen" text="Cambiar Foto" />
+
+    </children> 
+</AnchorPane>

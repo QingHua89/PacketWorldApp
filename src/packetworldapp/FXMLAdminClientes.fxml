@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldapp.FXMLAdminClientesController">
+    <children>
+        <Pane prefHeight="500.0" prefWidth="800.0">
+           <children>
+            <ImageView fitHeight="500.0" fitWidth="800.0" pickOnBounds="true">
+               <image>
+                  <Image url="@recursos/Fondo-Largo2.png" />
+               </image>
+            </ImageView>
+               <Pane prefHeight="62.0" prefWidth="800.0" style="-fx-background-color: #023047;">
+               <children>
+                  <ImageView fx:id="ivAtras" fitHeight="35.0" fitWidth="25.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#ClicAtras" pickOnBounds="true">
+                     <image>
+                        <Image url="@recursos/back.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="52.0" layoutY="16.0" text="Clientes" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font></Label>
+               </children></Pane>
+               <TextField fx:id="tfBuscar" layoutX="25.0" layoutY="92.0" prefHeight="29.0" prefWidth="208.0" promptText="Nombre/Telefono/Correo">
+               
+            </TextField>
+               <Button fx:id="btBuscar" layoutX="233.0" layoutY="92.0" mnemonicParsing="false" onAction="#ClicBuscarCliente" prefHeight="29.0" prefWidth="51.0" text="Buscar">
+               
+            </Button>
+               <Button layoutX="340.0" layoutY="92.0" mnemonicParsing="false" onAction="#ClicAgregarCliente" prefHeight="29.0" prefWidth="120.0" text="Nuevo">
+               
+            </Button>
+               <Button layoutX="488.0" layoutY="92.0" mnemonicParsing="false" onAction="#ClicEditarCliente" prefHeight="29.0" prefWidth="120.0" text="Editar">
+              
+            </Button>
+               <Button layoutX="640.0" layoutY="92.0" mnemonicParsing="false" onAction="#ClicEliminarCliente" prefHeight="29.0" prefWidth="120.0" text="Eliminar">
+               
+            </Button>
+            <TableView fx:id="tvClientes" layoutX="25.0" layoutY="172.0" prefHeight="300.0" prefWidth="750.0">
+               <columns>
+                  <TableColumn fx:id="tcNombre" prefWidth="69.0" text="Nombre" />
+                  <TableColumn fx:id="tcApellidoPaterno" prefWidth="74.0" text="Apellido Paterno" />
+                  <TableColumn fx:id="tcApellidoMaterno" prefWidth="92.0" text="Apellido Materno" />
+                  <TableColumn fx:id="tcCalle" prefWidth="83.0" text="Calle" />
+                  <TableColumn fx:id="tcNumero" prefWidth="83.0" text="Número" />
+                  <TableColumn fx:id="tcColonia" prefWidth="87.0" text="Colonia" />
+                  <TableColumn fx:id="tcCodigoPostal" prefWidth="70.0" text="C.P." />
+                  <TableColumn fx:id="tcTelefono" prefWidth="82.0" text="Telefono" />
+                  <TableColumn fx:id="tcCorreo" prefWidth="108.0" text="Correo" />
+               </columns>
+            </TableView>
+           </children>
+        </Pane>
+    </children>
+</AnchorPane>

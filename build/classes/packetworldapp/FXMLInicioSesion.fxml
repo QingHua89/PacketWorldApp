@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldapp.FXMLInicioSesionController">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="400.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="400.0" opacity="0.53" pickOnBounds="true">
+               <image>
+                  <Image url="@recursos/fondo2.png" />
+               </image></ImageView>
+            <ImageView fitHeight="169.0" fitWidth="208.0" layoutX="96.0" layoutY="64.0" pickOnBounds="true">
+               <image>
+                  <Image url="@recursos/logo2.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="134.0" layoutY="33.0" text="Bienvenido/a">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <Label layoutX="92.0" layoutY="251.0" prefHeight="42.0" prefWidth="218.0" text="Ingresa tu número de personal y contraseña para ingresar." textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="58.0" layoutY="324.0" text="Número de Personal:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfNumPersonal" layoutX="58.0" layoutY="346.0" prefHeight="25.0" prefWidth="286.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <Label fx:id="lbErrorPersonal" layoutX="58.0" layoutY="376.0" prefHeight="20.0" prefWidth="286.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="58.0" layoutY="414.0" text="Contraseña:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pfPassword" layoutX="57.0" layoutY="434.0" prefHeight="30.0" prefWidth="286.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </PasswordField>
+            <Label fx:id="lbErrorPassword" layoutX="57.0" layoutY="464.0" prefHeight="20.0" prefWidth="286.0" textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="129.0" layoutY="519.0" mnemonicParsing="false" onAction="#ClicInicioSesion" prefHeight="30.0" prefWidth="141.0" text="Iniciar Sesión">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

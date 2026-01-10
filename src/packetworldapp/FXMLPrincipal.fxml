@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldapp.FXMLPrincipalController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@recursos/Fondo-Largo2.png" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#023047" height="62.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+            <ImageView fx:id="ivCerrarSesion" fitHeight="37.0" fitWidth="39.0" layoutX="542.0" layoutY="13.0" onMouseClicked="#ClicCerrarSesion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@recursos/Logout.png" />
+               </image>
+               <effect>
+                  <ColorAdjust />
+               </effect>
+            </ImageView>
+            <Label layoutX="20.0" layoutY="19.0" prefHeight="27.0" prefWidth="124.0" text="Bienvenido/a:" textAlignment="RIGHT" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbNombre" layoutX="144.0" layoutY="15.0" prefHeight="35.0" prefWidth="354.0" textFill="#fafafa">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="btColaborador" layoutX="213.0" layoutY="155.0" mnemonicParsing="false" onAction="#ClicIrColaboradores" prefHeight="37.0" prefWidth="150.0" text="Colaboradores" />
+            <Button fx:id="btClientes" layoutX="213.0" layoutY="209.0" mnemonicParsing="false" onAction="#ClicIrClientes" prefHeight="37.0" prefWidth="150.0" text="Clientes" />
+            <Button fx:id="btPaquetes" layoutX="213.0" layoutY="261.0" mnemonicParsing="false" onAction="#ClicIrPaquetes" prefHeight="37.0" prefWidth="150.0" text="Paquetes" />
+            <Button fx:id="btSuscursales" layoutX="399.0" layoutY="155.0" mnemonicParsing="false" onAction="#ClicIrSucursales" prefHeight="37.0" prefWidth="150.0" text="Sucursales" />
+            <Button fx:id="btUnidades" layoutX="399.0" layoutY="209.0" mnemonicParsing="false" onAction="#ClicIrUnidades" prefHeight="37.0" prefWidth="150.0" text="Unidades" />
+            <Button fx:id="btEnvios" layoutX="399.0" layoutY="261.0" mnemonicParsing="false" onAction="#ClicIrEnvio" prefHeight="37.0" prefWidth="150.0" text="Envios" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1ebf500" height="124.0" layoutX="29.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+            <ImageView fx:id="ivFotoPerfil" fitHeight="124.0" fitWidth="124.0" layoutX="29.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="29.0" layoutY="237.0" text="Num. Personal:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Label fx:id="lbNumPErsonal" layoutX="29.0" layoutY="257.0" prefHeight="17.0" prefWidth="124.0">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="lbRol" layoutX="29.0" layoutY="306.0" prefHeight="17.0" prefWidth="124.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="286.0" text="Rol:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbSucursal" layoutX="29.0" layoutY="353.0" prefHeight="20.0" prefWidth="150.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="333.0" text="Sucursal:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="btAsignar" layoutX="310.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClicAsignarUnidad" prefHeight="37.0" prefWidth="150.0" text="Asignación de Unidades" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
