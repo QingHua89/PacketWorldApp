@@ -1,6 +1,7 @@
 package packetworldapp;
 
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -81,10 +82,10 @@ public class FXMLFormularioColaboradoresController implements Initializable {
         
     }
     
-    public void inicializarDatos(Colaborador colaboradorEdicion, INotificador observador){
+    public void inicializarDatos(Colaborador colaboradorEdicion, INotificador observador) {
         this.colaboradorEdicion = colaboradorEdicion;
         this.observador = observador;
-        if (colaboradorEdicion != null){
+        if (colaboradorEdicion != null) {
             tfNoPersonal.setText(colaboradorEdicion.getNumeroPersonal());
             tfNombre.setText(colaboradorEdicion.getNombre());
             tfApellidoPaterno.setText(colaboradorEdicion.getApellidoPaterno());
@@ -100,6 +101,16 @@ public class FXMLFormularioColaboradoresController implements Initializable {
             cbSucursal.getSelectionModel().select(posSC);
             tfNoPersonal.setDisable(true);
             cbSucursal.setDisable(true);
+
+            if (colaboradorEdicion.getFotoBase64() != null && !colaboradorEdicion.getFotoBase64().isEmpty()) {
+                try {
+                    byte[] bytes = Base64.getDecoder().decode(colaboradorEdicion.getFotoBase64());
+                    Image imagen = new Image(new ByteArrayInputStream(bytes));
+                    ivPerfil.setImage(imagen);
+                } catch (Exception e) {
+                    ivPerfil.setImage(null);
+                }
+            }
         }
     }
 

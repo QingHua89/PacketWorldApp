@@ -161,4 +161,15 @@ public class ColaboradorImp {
         return respuesta;
     }
     
+    public static Colaborador obtenerFoto(int idColaborador) {
+        String URL = Constantes.URL_WS + "colaborador/obtener-foto/" + idColaborador;
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+
+        if (respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK) {
+            Gson gson = new Gson();
+            return gson.fromJson(respuestaAPI.getContenido(), Colaborador.class);
+        }
+        return null;
+    }
+
 }

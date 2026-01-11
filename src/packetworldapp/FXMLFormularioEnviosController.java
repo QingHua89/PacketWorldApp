@@ -169,7 +169,7 @@ public class FXMLFormularioEnviosController implements Initializable {
         Respuesta respuesta = EnvioImp.registrar(envio);
         if(!respuesta.isError()){
             Utilidades.mostrarAlertaSimple("Envio registrado",
-                    "La información del colaborador "+envio.getGuia()+" ha sido guardada correctamente",
+                    "La información del envio "+envio.getGuia()+" ha sido guardada correctamente",
                     Alert.AlertType.INFORMATION);
             observador.notificarOperacionExitosa("Registro", envio.getGuia());
             cerrarVentana();
@@ -181,7 +181,7 @@ public class FXMLFormularioEnviosController implements Initializable {
     private void editarEnvio(Envio envio){
         Respuesta respuesta = EnvioImp.editar(envio);
         if (!respuesta.isError()){
-            Utilidades.mostrarAlertaSimple("Colaborador(a) modificado correctamente", 
+            Utilidades.mostrarAlertaSimple("Envio modificado correctamente", 
                     "La información del envio "+envio.getGuia()+" ha sido modificada correctamente.", 
                     Alert.AlertType.INFORMATION);
             observador.notificarOperacionExitosa("Modificación", envio.getGuia());

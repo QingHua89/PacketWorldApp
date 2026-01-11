@@ -58,8 +58,7 @@
       <ComboBox fx:id="cbSucursal" layoutX="406.0" layoutY="215.0" prefHeight="27.0" prefWidth="161.0" />
       <Label layoutX="408.0" layoutY="262.0" text="No. de licencia" />
       <TextField fx:id="tfNoLicencia" layoutX="406.0" layoutY="279.0" prefHeight="25.0" prefWidth="161.0" promptText="LIC000000" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f800" height="140.0" layoutX="31.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="149.0" />
-      <ImageView fx:id="ivPerfil" fitHeight="140.0" fitWidth="149.0" layoutX="31.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivPerfil" fitHeight="140.0" fitWidth="149.0" layoutX="31.0" layoutY="251.0" pickOnBounds="true" />
       <Button layoutX="188.0" layoutY="354.0" mnemonicParsing="false" onAction="#clicBtnCambiarImagen" text="Cambiar Foto" />
 
     </children> 

@@ -145,20 +145,20 @@ public class FXMLAdminColaboradoresController implements Initializable, INotific
         
     }
     
-    private void irFormulario(Colaborador colaborador){
-        try{
+    private void irFormulario(Colaborador colaborador) {
+        try {
             FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLFormularioColaboradores.fxml"));
             Parent vista = cargador.load();
             FXMLFormularioColaboradoresController controlador = cargador.getController();
             controlador.inicializarDatos(colaborador, this);
-            
+
             Scene escena = new Scene(vista);
             Stage escenario = new Stage();
             escenario.setScene(escena);
             escenario.setTitle("Formulario Colaborador");
             escenario.initModality(Modality.APPLICATION_MODAL);
             escenario.showAndWait();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

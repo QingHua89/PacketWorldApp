@@ -1,0 +1,108 @@
+/*Importacion de Fuentes*/
+@font-face{
+    font-family:'RodinPro'; 
+    src: url('RodinProDB.otf'); 
+}
+/*Reglas universales*/
+.root{
+    -fx-accent: #312E25;
+    -fx-text-fill:#312E25;
+    -fx-font-family:'RodinPro';
+    -fx-focus-color: white; 
+    -fx-faint-focus-color: #312E2522;
+}
+/*Bloques de estilo*/
+.background{
+    -fx-background-color: #C7C2AC;
+    -fx-alignment: center;
+
+}
+.pane{ 
+    -fx-background-color: #DDD8C7; 
+    -fx-fill: #DDD8C7;
+    -fx-stroke:null;
+    -fx-effect: dropshadow(gaussian,#DDD8C7, 17, 0.0 , 0 , 0 )
+}
+.pane-black{
+    -fx-background-color: #312E25;
+    -fx-fill: #312E25;
+}
+/*TabPane*/
+.tab-header-background{
+    -fx-background-color: #C7C2AC;
+}
+.tab{
+    -fx-background-color: #312E25;
+    
+}
+.tab:selected{
+    -fx-background-color:#DDD8C7;
+    
+}
+.tab .tab-label{
+    -fx-background-color: #312E25;
+    -fx-text-fill:white;
+}
+.tab:selected .tab-label{
+    -fx-background-color:#DDD8C7;
+    -fx-text-fill:#312E25;
+}
+.tab-pane{
+    -fx-open-tab-animation:grow;
+    -fx-close-tab-animation:grow;
+}
+/*Botones*/
+.button{
+    -fx-background-color:#312E25;
+    -fx-pref-height:50;
+    -fx-text-fill:white;
+    -fx-cursor:HAND;
+    -fx-font-weight: bold;
+    -fx-font-size:17;
+}
+.button:pressed{
+    -fx-background-color:#C7C2AC;
+}
+
+.textfield{
+    -fx-font-size:18;
+    -fx-border-color:#C7C2AC;
+    -fx-cursor:TEXT;
+}
+/*Texto*/
+.texto-icono-white{
+    -fx-text-fill:white;
+    -fx-text-size:18;
+}
+
+.enfasis{
+    -fx-font-weight:bold;
+}
+
+.t1{
+    -fx-font-size:40;
+    -fx-font-weight:bold;
+}
+.t1-slim{
+    -fx-font-size:40;
+}
+.t2{
+    -fx-font-size:20;
+}
+
+/*Tablas*/
+.table-view .column-header-background {
+    -fx-background-color: #C7C2AC;
+}
+.table-view .column-header {
+    -fx-background-color: #312E25;
+}
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+.table-row-cell {
+    -fx-background-color: #DDD8C7;
+}
+.table-row-cell:selected {
+    -fx-background-color: #C7C2AC;
+}
