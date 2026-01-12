@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="packetworldapp.FXMLAdminAsociacionEnviosController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+               <image>
+                  <Image url="@recursos/Fondo-Largo2.png" />
+               </image></ImageView>
+            <Pane prefHeight="54.0" prefWidth="600.0" style="-fx-background-color: #023047;">
+               <children>
+                  <Label layoutX="39.0" layoutY="11.0" text="Asociación Envio - Unidad" textFill="#f5f5f5">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="ivAtras" fitHeight="35.0" fitWidth="25.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#clicAtras" pickOnBounds="true">
+                     <image>
+                        <Image url="@recursos/back.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <ComboBox fx:id="cbEnvio" layoutX="24.0" layoutY="250.0" prefHeight="30.0" prefWidth="230.0" />
+            <ComboBox fx:id="cbConductor" layoutX="24.0" layoutY="164.0" prefHeight="30.0" prefWidth="230.0" />
+            <Label layoutX="24.0" layoutY="208.0" prefHeight="30.0" prefWidth="76.0" text="Envio:">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="121.0" prefHeight="30.0" prefWidth="109.0" text="Conductor:">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tvAsociaciones" fixedCellSize="0.0" layoutX="274.0" layoutY="88.0" prefHeight="230.0" prefWidth="300.0">
+               <columns>
+                  <TableColumn fx:id="tcGuia" prefWidth="150.0" text="Guia" />
+                  <TableColumn fx:id="tcConductor" prefWidth="150.0" text="Número Conductor" />
+               </columns>
+            </TableView>
+            <Button layoutX="74.0" layoutY="312.0" mnemonicParsing="false" onAction="#clicAsociar" prefHeight="30.0" prefWidth="118.0" text="Desasignar" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

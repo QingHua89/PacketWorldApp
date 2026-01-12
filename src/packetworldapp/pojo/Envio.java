@@ -160,4 +160,8 @@ public class Envio {
         this.sucursalCP = sucursalCP;
     }
     
+    @Override
+    public String toString() {
+        return "-"+this.guia;
+    }
 }

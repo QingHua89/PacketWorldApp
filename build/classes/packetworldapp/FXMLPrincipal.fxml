@@ -45,7 +45,6 @@
             <Button fx:id="btSuscursales" layoutX="399.0" layoutY="155.0" mnemonicParsing="false" onAction="#ClicIrSucursales" prefHeight="37.0" prefWidth="150.0" text="Sucursales" />
             <Button fx:id="btUnidades" layoutX="399.0" layoutY="209.0" mnemonicParsing="false" onAction="#ClicIrUnidades" prefHeight="37.0" prefWidth="150.0" text="Unidades" />
             <Button fx:id="btEnvios" layoutX="399.0" layoutY="261.0" mnemonicParsing="false" onAction="#ClicIrEnvio" prefHeight="37.0" prefWidth="150.0" text="Envios" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1ebf500" height="124.0" layoutX="29.0" layoutY="102.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
             <ImageView fx:id="ivFotoPerfil" fitHeight="124.0" fitWidth="124.0" layoutX="29.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="29.0" layoutY="237.0" text="Num. Personal:">
                <font>
@@ -75,7 +74,8 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button fx:id="btAsignar" layoutX="310.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClicAsignarUnidad" prefHeight="37.0" prefWidth="150.0" text="Asignación de Unidades" />
+            <Button fx:id="btAsignar" layoutX="213.0" layoutY="315.0" mnemonicParsing="false" onAction="#ClicAsignarUnidad" prefHeight="37.0" prefWidth="150.0" text="Asignación de Unidades" />
+            <Button fx:id="btAsociarEnvio" layoutX="399.0" layoutY="314.0" mnemonicParsing="false" onAction="#ClicIrAsociacionEnvio" prefHeight="37.0" prefWidth="150.0" text="Asociar Envío-Conductor" />
          </children>
       </Pane>
    </children>

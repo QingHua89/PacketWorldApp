@@ -32,11 +32,6 @@
                 </font>
             </Label>
             <ComboBox fx:id="cbCliente" layoutX="32.0" layoutY="79.0" prefHeight="25.0" prefWidth="180.0" />
-            <Label fx:id="lbInfoCliente" layoutX="24.0" layoutY="120.0" prefHeight="45.0" prefWidth="240.0" wrapText="true">
-                <font>
-                    <Font size="14.0" />
-                </font>
-            </Label>
             <Separator layoutX="297.0" layoutY="62.0" orientation="VERTICAL" prefHeight="108.0" prefWidth="0.0" />
             <Label layoutX="331.0" layoutY="62.0" text="Sucursal:">
                 <font>
@@ -44,25 +39,23 @@
                 </font>
             </Label>
             <ChoiceBox fx:id="cbSucursal" layoutX="331.0" layoutY="79.0" prefHeight="25.0" prefWidth="180.0" />
-            <Label fx:id="lbInfoSucursal" layoutX="332.0" layoutY="120.0" prefHeight="45.0" prefWidth="240.0" wrapText="true">
+            <Label fx:id="lbCanPaquetes" layoutX="528.0" layoutY="217.0" prefHeight="25.0" prefWidth="59.0" wrapText="true">
                 <font>
                     <Font size="14.0" />
                 </font>
             </Label>
-            <Separator layoutX="46.0" layoutY="169.0" prefWidth="200.0" />
-            <Separator layoutX="359.0" layoutY="171.0" prefWidth="200.0" />
-            <Label layoutX="32.0" layoutY="200.0" text="Estado:">
+            <Label layoutX="32.0" layoutY="161.0" text="Estado:">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
             </Label>
-            <ComboBox fx:id="cbEstado" layoutX="32.0" layoutY="217.0" prefHeight="25.0" prefWidth="180.0" />
-            <Label layoutX="32.0" layoutY="270.0" text="Número de Guia:">
+            <ComboBox fx:id="cbEstado" layoutX="32.0" layoutY="178.0" prefHeight="25.0" prefWidth="180.0" />
+            <Label layoutX="32.0" layoutY="231.0" text="Número de Guia:">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
             </Label>
-            <TextField fx:id="tfGuia" layoutX="32.0" layoutY="287.0" prefHeight="25.0" prefWidth="180.0" />
+            <TextField fx:id="tfGuia" editable="false" layoutX="32.0" layoutY="248.0" prefHeight="25.0" prefWidth="180.0" />
             <Label layoutX="327.0" layoutY="200.0" text="Costos:">
                 <font>
                     <Font name="System Bold" size="14.0" />
@@ -88,7 +81,14 @@
             <Button layoutX="477.0" layoutY="341.0" mnemonicParsing="false" onAction="#ClicAceptar" prefHeight="25.0" prefWidth="79.0" text="Aceptar" />
             <TextField fx:id="tfCostoTotal" layoutX="467.0" layoutY="275.0" prefHeight="25.0" prefWidth="59.0" />
             <TextField fx:id="tfCostoEnvio" layoutX="467.0" layoutY="244.0" prefHeight="25.0" prefWidth="59.0" />
-            <TextField fx:id="tfPaquetes" layoutX="467.0" layoutY="217.0" prefHeight="25.0" prefWidth="59.0" />
+            <TextField fx:id="tfPaquetes" editable="false" layoutX="467.0" layoutY="217.0" prefHeight="25.0" prefWidth="59.0" />
+            <Label layoutX="32.0" layoutY="290.0" text="Paquetes:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbPaquetes" layoutX="32.0" layoutY="310.0" prefHeight="25.0" prefWidth="180.0" />
+            <Button fx:id="btAgregar" layoutX="212.0" layoutY="310.0" mnemonicParsing="false" onAction="#ClicAgregar" text="Agregar" />
          </children>
       </Pane>
    </children>

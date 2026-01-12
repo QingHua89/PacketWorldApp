@@ -51,6 +51,8 @@ public class FXMLPrincipalController implements Initializable {
     private Label lbSucursal;
     @FXML
     private ImageView ivFotoPerfil;
+    @FXML
+    private Button btAsociarEnvio;
     
 
     @Override
@@ -104,6 +106,20 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void ClicIrPaquetes(ActionEvent event) {
+        try{
+            FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLAdminPaquetes.fxml"));
+            Parent vista = cargador.load();
+            FXMLAdminPaquetesController controlador = cargador.getController();
+            controlador.inicializarDatos(colaborador);
+            
+            Scene scColaborador = new Scene(vista);
+            Stage primaryStage = (Stage) btPaquetes.getScene().getWindow();
+            primaryStage.setScene(scColaborador);
+            primaryStage.setTitle("Administrador de Paquetes");
+            primaryStage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -170,6 +186,24 @@ public class FXMLPrincipalController implements Initializable {
             
             Scene scColaborador = new Scene(vista);
             Stage primaryStage = (Stage) btAsignar.getScene().getWindow();
+            primaryStage.setScene(scColaborador);
+            primaryStage.setTitle("Asignación de Unidades");
+            primaryStage.show();
+        }catch(IOException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    @FXML 
+    private void ClicIrAsociacionEnvio(ActionEvent event) {
+        try{
+            FXMLLoader cargador = new FXMLLoader(getClass().getResource("FXMLAdminAsociacionEnvios.fxml"));
+            Parent vista = cargador.load();
+            FXMLAdminAsociacionEnviosController controlador = cargador.getController();
+            controlador.inicializarDatos(colaborador);
+            
+            Scene scColaborador = new Scene(vista);
+            Stage primaryStage = (Stage) btAsociarEnvio.getScene().getWindow();
             primaryStage.setScene(scColaborador);
             primaryStage.setTitle("Asignación de Unidades");
             primaryStage.show();

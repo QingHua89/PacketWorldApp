@@ -13,7 +13,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import packetworldapp.pojo.Cliente;
 import packetworldapp.pojo.Colaborador;
+import packetworldapp.pojo.Envio;
 import packetworldapp.pojo.EstadoEnvio;
+import packetworldapp.pojo.Paquete;
 import packetworldapp.pojo.Sucursal;
 import packetworldapp.pojo.SucursalNombres;
 import packetworldapp.pojo.Unidad;
@@ -180,4 +182,59 @@ public class CatalogoImp {
         }
         return respuesta;
     }
+    
+    public static HashMap<String, Object> obtenerPaquete(){
+        HashMap<String, Object> respuesta = new LinkedHashMap<>();
+        String URL = Constantes.URL_WS + "catalogos/paquetes";
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+        if(respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK){
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Paquete>>(){}.getType();
+            List<Paquete> paquetes = gson.fromJson(respuestaAPI.getContenido(), tipoLista);
+            respuesta.put(Constantes.KEY_ERROR, false);
+            respuesta.put(Constantes.KEY_LISTA, paquetes);
+        }else{
+            respuesta.put(Constantes.KEY_ERROR, true);
+            switch(respuestaAPI.getCodigo()){
+                case Constantes.ERROR_MALFORMED_URL:
+                    respuesta.put(Constantes.KEY_MENSAJE, Constantes.MSJ_ERROR_URL);
+                    break;
+                case Constantes.ERROR_PETICION:
+                    respuesta.put(Constantes.KEY_MENSAJE, Constantes.MSJ_ERROR_PETICION);
+                    break;
+                default:
+                    respuesta.put(Constantes.KEY_MENSAJE,"Lo sentimos hay problemas para "
+                        + "obtener la información en este momento, por favor inténtelo más tarde.");
+            }
+        }
+        return respuesta;
+    }
+    
+    public static HashMap<String, Object> obtenerEnviosValidos(){
+        HashMap<String, Object> respuesta = new LinkedHashMap<>();
+        String URL = Constantes.URL_WS + "catalogos/envios-validos";
+        RespuestaHTTP respuestaAPI = ConexionAPI.peticionGET(URL);
+        if(respuestaAPI.getCodigo() == HttpURLConnection.HTTP_OK){
+            Gson gson = new Gson();
+            Type tipoLista = new TypeToken<List<Envio>>(){}.getType();
+            List<Envio> paquetes = gson.fromJson(respuestaAPI.getContenido(), tipoLista);
+            respuesta.put(Constantes.KEY_ERROR, false);
+            respuesta.put(Constantes.KEY_LISTA, paquetes);
+        }else{
+            respuesta.put(Constantes.KEY_ERROR, true);
+            switch(respuestaAPI.getCodigo()){
+                case Constantes.ERROR_MALFORMED_URL:
+                    respuesta.put(Constantes.KEY_MENSAJE, Constantes.MSJ_ERROR_URL);
+                    break;
+                case Constantes.ERROR_PETICION:
+                    respuesta.put(Constantes.KEY_MENSAJE, Constantes.MSJ_ERROR_PETICION);
+                    break;
+                default:
+                    respuesta.put(Constantes.KEY_MENSAJE,"Lo sentimos hay problemas para "
+                        + "obtener la información en este momento, por favor inténtelo más tarde.");
+            }
+        }
+        return respuesta;
+    }
+    
 }
