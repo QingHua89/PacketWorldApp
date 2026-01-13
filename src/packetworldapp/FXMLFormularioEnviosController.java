@@ -18,8 +18,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import packetworldapp.dominio.CatalogoImp;
+import packetworldapp.dominio.DistanciaImp;
 import packetworldapp.utilidades.GeneradorGuia;
 import packetworldapp.dominio.EnvioImp;
+import packetworldapp.dominio.HistorialImp;
 import packetworldapp.dominio.PaqueteImp;
 import packetworldapp.dto.Respuesta;
 import packetworldapp.interfaz.INotificador;
@@ -27,6 +29,7 @@ import packetworldapp.pojo.Cliente;
 import packetworldapp.pojo.Colaborador;
 import packetworldapp.pojo.Envio;
 import packetworldapp.pojo.EstadoEnvio;
+import packetworldapp.pojo.HistorialCambios;
 import packetworldapp.pojo.Paquete;
 import packetworldapp.pojo.SucursalNombres;
 import packetworldapp.utilidades.Constantes;
@@ -65,6 +68,8 @@ public class FXMLFormularioEnviosController implements Initializable {
     private ComboBox<Paquete> cbPaquetes;
     @FXML
     private Button btAgregar;
+    @FXML
+    private Label lbKm;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -80,8 +85,8 @@ public class FXMLFormularioEnviosController implements Initializable {
         if (envioEdicion != null){
             tfGuia.setText(envioEdicion.getGuia());
             tfGuia.setDisable(true);
-            //tfPaquetes.setText(envioEdicion);
-            //tfCostoEnvio.setText(envioEdicion);
+            tfPaquetes.setText(null);
+            tfCostoEnvio.setText(null);
             tfCostoTotal.setText(String.valueOf(envioEdicion.getCosto()));
             int pos = obtenerPosicionCliente(envioEdicion.getIdCliente());
             cbCliente.getSelectionModel().select(pos);
@@ -114,9 +119,14 @@ public class FXMLFormularioEnviosController implements Initializable {
 
             EstadoEnvio estadoSeleccion = cbEstado.getSelectionModel().getSelectedItem();
             envio.setIdEstadoEnvio(estadoSeleccion.getIdEstadoenvio());
-
-            envio.setCosto(Double.parseDouble(tfCostoTotal.getText()));
-
+            
+            try {
+                double costoTotal = Double.parseDouble(tfCostoTotal.getText().replace(",", "."));
+                envio.setCosto(costoTotal);
+            } catch (NumberFormatException e) {
+                envio.setCosto(0.0);
+            }
+            
             if (envioEdicion == null) {
                 registrarEnvio(envio);
             } else {
@@ -135,8 +145,18 @@ public class FXMLFormularioEnviosController implements Initializable {
                 paqueteSeleccion.setGuia(tfGuia.getText());
 
                 contarPaquetes.add(paqueteSeleccion);
-                lbCanPaquetes.setText("X "+String.valueOf(contarPaquetes.size())+" paquetes");
+                lbCanPaquetes.setText("X " + contarPaquetes.size() + "pq");
                 cbPaquetes.getSelectionModel().clearSelection();
+                double costoPaquete = calcularCostoPorPaquetes(contarPaquetes.size());
+                tfPaquetes.setText(String.valueOf(costoPaquete));
+                double distancia = consultarDistancia();
+                lbKm.setText(String.valueOf(distancia)+" Km");
+                double tarifa = calcularCostoDistancia();
+                double costoEnvio = distancia * tarifa;
+                tfCostoEnvio.setText(String.valueOf(costoEnvio));
+                double costoFinal = costoEnvio + costoPaquete;
+                tfCostoTotal.setText(String.valueOf(costoFinal));
+
             } else {
                 Utilidades.mostrarAlertaSimple("Paquete duplicado",
                         "Este paquete ya ha sido agregado a la lista.", Alert.AlertType.WARNING);
@@ -144,6 +164,65 @@ public class FXMLFormularioEnviosController implements Initializable {
         } else {
             Utilidades.mostrarAlertaSimple("Selección requerida",
                     "Seleccione un paquete antes de agregar.", Alert.AlertType.WARNING);
+        }
+    }
+    
+    private double consultarDistancia() {
+        Cliente clienteSeleccionado = cbCliente.getSelectionModel().getSelectedItem();
+        SucursalNombres sucursalSeleccionada = cbSucursal.getSelectionModel().getSelectedItem();
+        if (clienteSeleccionado == null || sucursalSeleccionada == null) {
+            return 0.0;
+        }
+        String cpOrigen = sucursalSeleccionada.getCodigoPostal();
+        String cpDestino = clienteSeleccionado.getCodigoPostal();
+        Respuesta distancia = DistanciaImp.obtenerDistancia(cpOrigen, cpDestino);
+        if (distancia.isError()) {
+            javafx.application.Platform.runLater(()
+                    -> Utilidades.mostrarAlertaSimple("Error de distancia", distancia.getMensaje(), Alert.AlertType.ERROR)
+            );
+            return 0.0;
+        }
+        try {
+            return Double.parseDouble(distancia.getMensaje().trim());
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
+    }
+          
+    private double calcularCostoDistancia() {
+        double distancia = consultarDistancia();
+        double costoKM = 0.0;
+
+        if (distancia < 1) {
+            costoKM = 0.0;
+        } else if (distancia <= 200) {
+            costoKM = 4.0;
+        } else if (distancia <= 500) {
+            costoKM = 3.0;
+        } else if (distancia <= 1000) {
+            costoKM = 2.0;
+        } else if (distancia <= 2000) {
+            costoKM = 1.0;
+        } else {
+            costoKM = 0.5;
+        }
+        double cotoDistancia = costoKM;
+        return cotoDistancia;
+    }
+
+    private double calcularCostoPorPaquetes(int numPaquetes) {
+        switch (numPaquetes) {
+            case 0:
+            case 1:
+                return 0.0;
+            case 2:
+                return 50.0;
+            case 3:
+                return 80.0;
+            case 4:
+                return 110.0;
+            default:
+                return 150.0;
         }
     }
     
@@ -306,42 +385,5 @@ public class FXMLFormularioEnviosController implements Initializable {
             Utilidades.mostrarAlertaSimple("Error al vincular paquete",
                     "No se pudo asignar la guía al paquete",Alert.AlertType.ERROR);
         }
-    }
-    
-    private void calcularCostoTotal() {
-        double costoBase = 0.0;
-        try {
-            if (!tfCostoEnvio.getText().isEmpty()) {
-                costoBase = Double.parseDouble(tfCostoEnvio.getText());
-            }
-        } catch (NumberFormatException e) {
-            costoBase = 0.0;
-        }
-
-        int numPaquetes = contarPaquetes.size();
-        double costoAdicional = 0.0;
-
-        switch (numPaquetes) {
-            case 0:
-            case 1:
-                costoAdicional = 0.0;
-                break;
-            case 2:
-                costoAdicional = 50.0;
-                break;
-            case 3:
-                costoAdicional = 80.0;
-                break;
-            case 4:
-                costoAdicional = 110.0;
-                break;
-            default:
-                costoAdicional = 150.0;
-                break;
-        }
-
-        tfPaquetes.setText(String.format("%.2f", costoAdicional));
-        double total = costoBase + costoAdicional;
-        tfCostoTotal.setText(String.format("%.2f", total));
     }
 }

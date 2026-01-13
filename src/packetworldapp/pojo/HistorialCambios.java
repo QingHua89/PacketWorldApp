@@ -7,6 +7,7 @@ public class HistorialCambios {
     private int idColaborador;
     private String motivo;
     private String fechaHoraCambio;
+    private String guia;
 
     public HistorialCambios() {
     }

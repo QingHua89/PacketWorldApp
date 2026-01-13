@@ -79,8 +79,8 @@
             </Label>
             <Button layoutX="378.0" layoutY="341.0" mnemonicParsing="false" onAction="#ClicCancelar" prefHeight="25.0" prefWidth="79.0" text="Cancelar" />
             <Button layoutX="477.0" layoutY="341.0" mnemonicParsing="false" onAction="#ClicAceptar" prefHeight="25.0" prefWidth="79.0" text="Aceptar" />
-            <TextField fx:id="tfCostoTotal" layoutX="467.0" layoutY="275.0" prefHeight="25.0" prefWidth="59.0" />
-            <TextField fx:id="tfCostoEnvio" layoutX="467.0" layoutY="244.0" prefHeight="25.0" prefWidth="59.0" />
+            <TextField fx:id="tfCostoTotal" editable="false" layoutX="467.0" layoutY="275.0" prefHeight="25.0" prefWidth="59.0" />
+            <TextField fx:id="tfCostoEnvio" editable="false" layoutX="467.0" layoutY="244.0" prefHeight="25.0" prefWidth="59.0" />
             <TextField fx:id="tfPaquetes" editable="false" layoutX="467.0" layoutY="217.0" prefHeight="25.0" prefWidth="59.0" />
             <Label layoutX="32.0" layoutY="290.0" text="Paquetes:">
                <font>
@@ -89,6 +89,7 @@
             </Label>
             <ComboBox fx:id="cbPaquetes" layoutX="32.0" layoutY="310.0" prefHeight="25.0" prefWidth="180.0" />
             <Button fx:id="btAgregar" layoutX="212.0" layoutY="310.0" mnemonicParsing="false" onAction="#ClicAgregar" text="Agregar" />
+            <Label fx:id="lbKm" layoutX="528.0" layoutY="244.0" prefHeight="25.0" prefWidth="59.0" />
          </children>
       </Pane>
    </children>
