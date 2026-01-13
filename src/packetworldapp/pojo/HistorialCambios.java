@@ -2,19 +2,18 @@ package packetworldapp.pojo;
 
 public class HistorialCambios {
     private int idHistorial;
-    private int idEnvio;
+    private String guia;
     private int idEstadoEnvio;
     private int idColaborador;
     private String motivo;
     private String fechaHoraCambio;
-    private String guia;
 
     public HistorialCambios() {
     }
 
-    public HistorialCambios(int idHistorial, int idEnvio, int idEstadoEnvio, int idColaborador, String motivo, String fechaHoraCambio) {
+    public HistorialCambios(int idHistorial, String guia, int idEstadoEnvio, int idColaborador, String motivo, String fechaHoraCambio) {
         this.idHistorial = idHistorial;
-        this.idEnvio = idEnvio;
+        this.guia = guia;
         this.idEstadoEnvio = idEstadoEnvio;
         this.idColaborador = idColaborador;
         this.motivo = motivo;
@@ -29,12 +28,12 @@ public class HistorialCambios {
         this.idHistorial = idHistorial;
     }
 
-    public int getIdEnvio() {
-        return idEnvio;
+    public String getGuia() {
+        return guia;
     }
 
-    public void setIdEnvio(int idEnvio) {
-        this.idEnvio = idEnvio;
+    public void setGuia(String guia) {
+        this.guia = guia;
     }
 
     public int getIdEstadoEnvio() {

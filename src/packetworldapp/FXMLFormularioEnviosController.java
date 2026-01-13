@@ -139,10 +139,14 @@ public class FXMLFormularioEnviosController implements Initializable {
     @FXML
     private void ClicAgregar(ActionEvent event) {
         Paquete paqueteSeleccion = cbPaquetes.getSelectionModel().getSelectedItem();
+        HistorialCambios primera = new HistorialCambios();
+        EstadoEnvio estadoSeleccion = cbEstado.getSelectionModel().getSelectedItem();
 
         if (paqueteSeleccion != null) {
             if (!contarPaquetes.contains(paqueteSeleccion)) {
                 paqueteSeleccion.setGuia(tfGuia.getText());
+                primera.setGuia(tfGuia.getText());
+                primera.setIdEstadoEnvio(estadoSeleccion.getIdEstadoenvio());
 
                 contarPaquetes.add(paqueteSeleccion);
                 lbCanPaquetes.setText("X " + contarPaquetes.size() + "pq");
@@ -361,6 +365,16 @@ public class FXMLFormularioEnviosController implements Initializable {
                 return i;
         }
         return -1;
+    }
+    
+    private void registrarSucursal(HistorialCambios cambios){
+        Respuesta respuesta = HistorialImp.registrar(cambios);
+        if(!respuesta.isError()){
+            observador.notificarOperacionExitosa("Registro",cambios.getFechaHoraCambio());
+            cerrarVentana();
+        }else{
+            Utilidades.mostrarAlertaSimple("Error al registrar", respuesta.getMensaje(), Alert.AlertType.ERROR);
+        }
     }
     
     private void cargarPaquetesPorGuia(String guia) {
